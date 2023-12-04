@@ -19,10 +19,20 @@ class Load extends Phaser.Scene {
         this.load.path = './assets/';
         // load graphics assets
         this.load.image('titleScreen', 'Title_Screen.png');
-        this.load.image('bikeImg', 'Bike/bike.png');
+
+        this.load.image('finishImg', 'finishline.png');
+
+        this.load.image('bikeImg', 'Bike/bike-nowheels.png');
+        this.load.json('bikePoints', 'Bike/bikeFrame.json');
+
+        this.load.image('wheelImg', 'Bike/wheel.png');
+        this.load.json('wheelPoints', 'Bike/wheel.json');
+
         this.load.image('skyImg', 'Background/sky.png');
+        this.load.image('lvl1Floor', 'Levels/1_floor.png');
+        this.load.json('lvl1Points', 'Levels/level1Points.json')
         // load audio assets
-        
+        this.load.audio('sfx_motor', 'Audio/bikesound.mp3')
         // load font
         
     }

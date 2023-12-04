@@ -1,12 +1,16 @@
 let config = {
     type: Phaser.AUTO,
-    width: 960,
-    height: 640,
+    width: 480,    //480    1920
+    height: 320,   //320    1080
     pixelArt: true,
+    zoom: 2,
     physics: {
-        default: "arcade",
-        arcade: {
-            debug: true
+        default: "matter",
+        matter: {
+            gravity: {
+                y: 0.25      //0.15
+            },
+            //debug: true
         }
     },
     scene: [ Load, Menu, Credits, Play ]
