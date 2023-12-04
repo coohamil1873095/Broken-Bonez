@@ -1,0 +1,28 @@
+{
+	"generator_info": "Shape definitions generated with PhysicsEditor. Visit https://www.codeandweb.com/physicseditor",
+	"bikeFrame": {
+		"type": "fromPhysicsEditor",
+		"label": "bikeFrame",
+		"isStatic": false,
+		"density": 0.1,
+		"restitution": 0,
+		"friction": 0.1,
+		"frictionAir": 0.01,
+		"frictionStatic": 0.5,
+		"collisionFilter": {
+			"group": 0,
+			"category": 1,
+			"mask": 255
+		},
+		"fixtures": [
+			{
+				"label": "",
+				"isSensor": false,
+				"vertices": [
+					[ { "x":15.725, "y":0.4 }, { "x":13.725, "y":6.425 }, { "x":29.375, "y":12.15 }, { "x":26.05, "y":4.875 } ],
+					[ { "x":0.85, "y":9.3 }, { "x":6.025, "y":12.1 }, { "x":29.375, "y":12.15 }, { "x":13.725, "y":6.425 }, { "x":1.4, "y":6.375 } ]
+				]
+			}
+		]
+	}
+}

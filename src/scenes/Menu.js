@@ -4,7 +4,8 @@ class Menu extends Phaser.Scene {
     }
 
     create() {
-        this.add.image(0, 0,'titleScreen').setOrigin(0);
+        this.titleScreen = this.add.image(0, 0,'titleScreen').setOrigin(0);
+        this.titleScreen.scale = 0.5;
         
         // define keys
         keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
