@@ -8,9 +8,13 @@ class Play extends Phaser.Scene {
         this.sfxMotor = this.sound.add('sfx_motor');
 
         this.sky = this.add.image(0, 0, 'skyImg').setOrigin(0);
-
+        this.scorebar = this.add.image(0, 0, 'scorebar').setScale(2);
+        this.scorebar.setScrollFactor(0);
+    
         //this.floor = this.add.sprite(0, 0, 'lvl1Floor').setOrigin(0);
         //this.floor.setImmovable();
+        
+
         this.floorPhysics = this.cache.json.get('lvl1Points');
         this.floor = this.matter.add.sprite(0, 0, 'lvl1Floor', null, { shape: this.floorPhysics.oneFloor });
         this.floor.setPosition(900 + this.floor.centerOfMass.x, 800 + this.floor.centerOfMass.y)
@@ -72,6 +76,13 @@ class Play extends Phaser.Scene {
         this.bike.scale = 0.7;
         this.bike.setCollisionGroup(1)
         this.bike.setCollidesWith(0)
+        
+
+        
+        //this.bike.addChild(this.wheel);
+        //this.bike.addChild(this.wheel2);
+        //const container = this.add.container(100, -50, [ this.bike, this.wheel, this.wheel2 ]);
+        //const physicsImage = this.matter.add.gameObject(this.bike);
 
         //this.bike.setIgnoreGravity();
         // this.bike.setMass(0.1);
@@ -107,6 +118,14 @@ class Play extends Phaser.Scene {
         
         this.matter.world.setBounds(0, 0, this.floor.width, this.floor.height);
 
+        this.lives = 3;
+        this.lives1 = this.add.image(460 , 20, 'lives').setScale(0.04);
+        this.lives2 = this.add.image(425 , 20, 'lives').setScale(0.04);
+        this.lives3 = this.add.image(390 , 20, 'lives').setScale(0.04);
+        this.lives1.setScrollFactor(0);
+        this.lives2.setScrollFactor(0);
+        this.lives3.setScrollFactor(0);
+
 
         
         // this.physics.add.collider(this.bike, this.floor, () => {
@@ -117,6 +136,7 @@ class Play extends Phaser.Scene {
     }
 
     update() {
+        
         //console.log(this.bike);
         //console.log(this.bike.y);
         // if(this.bike.y + this.bike.height * this.bike.scale.y / 2 <= this.game.config.height) {
@@ -126,29 +146,60 @@ class Play extends Phaser.Scene {
         
         // if not colliding with ground, set inAir to true
         // then check if in air before input
+
+
+        if(this.matter.overlap(this.bike, this.floor)){
+            this.bike.setPosition(this.floor.width / 31, this.floor.height / 1.75)
+            this.wheel.setPosition(this.floor.width / 25, this.floor.height / 1.72);
+            this.wheel2.setPosition(this.floor.width / 35, this.floor.height / 1.72);
+            this.bike.rotation = 0;
+            this.bike.setAngularVelocity(0);
+            this.lives-=1;
+            if(this.lives == 2)
+            {
+                this.lives3.visible = false;
+            }
+            else if(this.lives == 1)
+            {
+                this.lives2.visible = false;
+            }
+            else if(this.lives == 0)
+            {
+                this.lives1.visible = false;
+                console.log("lose!");
+                //go to lose screen
+            }
+
+        }
+        if(this.matter.overlap(this.wheel, this.floor) || this.matter.overlap(this.wheel2, this.floor)){
+            //this.bike.rotation = 0;
+        }
+        if(this.matter.overlap(this.bike, this.finish) || this.matter.overlap(this.wheel, this.finish) || this.matter.overlap(this.wheel2, this.finish)){
+            console.log("victory!");
+            //go to next level
+        }
         if (!this.matter.overlap(this.wheel, this.floor)) {
             this.wheelInAir = true;
-            
-        }
-        else {
+        } else {
             this.wheelInAir = false;
         }
-        
-
-        if(!this.wheelInAir && cursors.right.isDown)
-        {
-            //this.wheel.setAngularVelocity(0.75);
-            //this.wheel2.setAngularVelocity(0.75);
+    
+        if (!this.wheelInAir && cursors.right.isDown) {
             this.wheel.setVelocityX(this.bikeSpeed);
             this.wheel2.setVelocityX(this.bikeSpeed);
+    
             if (!this.sfxMotor.isPlaying) {
                 this.sfxMotor.play();
             }
-            
         }
-        if(cursors.left.isDown)
+        if(!this.wheelInAir && cursors.left.isDown)
         {
-            this.wheel2.setVelocityX(-1);
+            this.wheel2.setVelocityX(-1.3);
+        }
+        
+        if(this.wheelInAir && cursors.right.isDown)
+        {
+            this.bike.rotation += 0.01;
         }
 
         //this.bike.angle = this.wheel.angle;

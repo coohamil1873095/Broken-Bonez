@@ -29,6 +29,8 @@ class Load extends Phaser.Scene {
         this.load.json('wheelPoints', 'Bike/wheel.json');
 
         this.load.image('skyImg', 'Background/sky.png');
+        this.load.image('lives', 'lives.png');
+        this.load.image('scorebar', 'scorebar.png');
         this.load.image('lvl1Floor', 'Levels/1_floor.png');
         this.load.json('lvl1Points', 'Levels/level1Points.json')
         // load audio assets
