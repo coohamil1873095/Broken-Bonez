@@ -8,7 +8,7 @@ let config = {
         default: "matter",
         matter: {
             gravity: {
-                y: 0.25      //0.15
+                y: 0.15      //0.15  // 0.25
             },
             //debug: true
         }

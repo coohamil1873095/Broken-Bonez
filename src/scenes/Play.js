@@ -105,8 +105,10 @@ class Play extends Phaser.Scene {
 
         //this.car = this.matter.add.car(this.floor.width / 40, this.floor.height / 2, 15, 15, 5);
         
-        this.bikeSpeed = 4;
+        this.bikeSpeed = 3;
         this.wheelInAir = false;
+        this.gameOver = false;
+        this.finishedLevel = false;
 
         //this.matter.world.setGravity(0, 50);
         
@@ -143,18 +145,27 @@ class Play extends Phaser.Scene {
         //     this.bike.setGravityY(0);
         // }
         //console.log(this.bike.y);
-        
-        // if not colliding with ground, set inAir to true
-        // then check if in air before input
 
+        this.bike.resetFlip();
+        //this.bike.setAngle(this.wheel.angle);
+        console.log(this.wheel.angle);
+        this.wheel2.angle = this.wheel.angle;
+        
+
+        if (this.finishedLevel) {
+            this.add.bitmapText(centerX, centerY, 'cleanFont', 'Level', 25).setOrigin(0.5).setTint(0xff0000);
+            this.add.bitmapText(centerX, centerY, 'cleanFont', '(Insert Level Num)', 25).setOrigin(0.5).setTint(0xff0000);
+            this.add.bitmapText(centerX, centerY, 'cleanFont', 'Cleared!', 25).setOrigin(0.5).setTint(0xff0000);
+            console.log("stuff");
+        }
 
         if(this.matter.overlap(this.bike, this.floor)){
-            this.bike.setPosition(this.floor.width / 31, this.floor.height / 1.75)
-            this.wheel.setPosition(this.floor.width / 25, this.floor.height / 1.72);
-            this.wheel2.setPosition(this.floor.width / 35, this.floor.height / 1.72);
-            this.bike.rotation = 0;
-            this.bike.setAngularVelocity(0);
-            this.lives-=1;
+            // this.bike.setPosition(this.floor.width / 31, this.floor.height / 1.75)
+            // this.wheel.setPosition(this.floor.width / 25, this.floor.height / 1.72);
+            // this.wheel2.setPosition(this.floor.width / 35, this.floor.height / 1.72);
+            // this.bike.rotation = 0;
+            // this.bike.setAngularVelocity(0);
+            // this.lives-=1;
             if(this.lives == 2)
             {
                 this.lives3.visible = false;
@@ -176,8 +187,11 @@ class Play extends Phaser.Scene {
         }
         if(this.matter.overlap(this.bike, this.finish) || this.matter.overlap(this.wheel, this.finish) || this.matter.overlap(this.wheel2, this.finish)){
             console.log("victory!");
+            this.finishedLevel = true;
             //go to next level
         }
+        // if not colliding with ground, set inAir to true
+        // then check if in air before input
         if (!this.matter.overlap(this.wheel, this.floor)) {
             this.wheelInAir = true;
         } else {
@@ -189,7 +203,7 @@ class Play extends Phaser.Scene {
             this.wheel2.setVelocityX(this.bikeSpeed);
     
             if (!this.sfxMotor.isPlaying) {
-                this.sfxMotor.play();
+                //this.sfxMotor.play();
             }
         }
         if(!this.wheelInAir && cursors.left.isDown)
