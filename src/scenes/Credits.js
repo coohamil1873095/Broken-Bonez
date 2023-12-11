@@ -6,34 +6,20 @@ class Credits extends Phaser.Scene {
     create() {
 
         // change background color
-        this.cameras.main.setBackgroundColor('#000000');
-
-        // text config
-        let creditsConfig = {
-            fontFamily: 'Courier',
-            fontSize: '14px',
-            backgroundColor: '#F3B141',
-            color: '#843605',
-            align: 'right',
-            padding: {
-                top: 5,
-                bottom: 5,
-            },
-            fixedWidth: 0
-        }
+        this.cameras.main.setBackgroundColor('#272323');
 
         // show credits text
-        this.add.text(game.config.width/2, game.config.height/10, 'Credits', creditsConfig).setOrigin(0.5);
-        this.add.text(game.config.width/2, game.config.height/6, 'Music:', creditsConfig).setOrigin(0.5);
-        this.add.text(game.config.width/2, game.config.height/6 + 32, '', creditsConfig).setOrigin(0.5);
-        this.add.text(game.config.width/2, game.config.height/3, 'SFX:', creditsConfig).setOrigin(0.5);
-        this.add.text(game.config.width/2, game.config.height/3 + 32, '', creditsConfig).setOrigin(0.5);
-        this.add.text(game.config.width/2, game.config.height/3 + 64, '', creditsConfig).setOrigin(0.5);
-        this.add.text(game.config.width/2, game.config.height/3 + 96, '', creditsConfig).setOrigin(0.5);
-        this.add.text(game.config.width/2, game.config.height/3 + 128, '', creditsConfig).setOrigin(0.5);
-        this.add.text(game.config.width/2, game.config.height/3 + 160, '', creditsConfig).setOrigin(0.5);
-        this.add.text(game.config.width/2, game.config.height/3 + 256, 'All other assets made using GIMP 2.10.34', creditsConfig).setOrigin(0.5);
-        this.add.text(game.config.width/2, game.config.height/3 + 320, 'Press C to Return to Menu', creditsConfig).setOrigin(0.5);
+
+        this.add.bitmapText(centerX, centerY / 5, 'cleanFont', 'Credits', 20).setOrigin(0.5).setTint(0xfffffff);
+        this.add.bitmapText(centerX / 5, centerY / 3, 'cleanFont', 'Music', 20).setOrigin(0.5).setTint(0xfffffff);
+        // insert music text
+        this.add.bitmapText(centerX / 6, centerY / 1.5, 'cleanFont', 'SFX', 20).setOrigin(0.5).setTint(0xfffffff);
+        // insert sfx text 
+
+        this.add.bitmapText(centerX / 6, centerY / 0.7, 'cleanFont', 'Font', 20).setOrigin(0.5).setTint(0xfffffff);
+        this.add.bitmapText(centerX / 1.825, centerY / 0.625, 'cleanFont', 'https://emhuo.itch.io/nico-pixel-fonts-pack', 10).setOrigin(0.5).setTint(0xfffffff);
+        this.add.bitmapText(centerX, centerY / 0.55, 'cleanFont', 'All other assets made using GIMP and PhysicsEditor', 10).setOrigin(0.5).setTint(0xfffffff);
+        this.add.bitmapText(centerX, centerY / 0.525, 'cleanFont', 'Press C to Return to Menu', 10).setOrigin(0.5).setTint(0xfff200);
 
 
         keyC = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.C);

@@ -22,6 +22,7 @@ class Load extends Phaser.Scene {
 
         this.load.image('finishImg', 'finishline.png');
 
+        this.load.image('bikeFull', 'Bike/bike-full.png');
         this.load.image('bikeImg', 'Bike/bike-nowheels.png');
         this.load.json('bikePoints', 'Bike/bikeFrame.json');
 
@@ -36,7 +37,7 @@ class Load extends Phaser.Scene {
         // load audio assets
         this.load.audio('sfx_motor', 'Audio/bikesound.mp3')
         // load font
-        
+        this.load.bitmapFont('cleanFont', 'font/CleanPlate.png', 'font/CleanPlate.xml');
     }
 
     create() {
