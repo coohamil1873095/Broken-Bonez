@@ -23,7 +23,11 @@ class Menu extends Phaser.Scene {
 
     update() {
         if (Phaser.Input.Keyboard.JustDown(keySpace)) {
-            this.scene.start('playScene');
+            
+            // CHANGE TO PLAY
+            this.scene.start('trickScene');
+        
+        
         }
         if (Phaser.Input.Keyboard.JustDown(keyC)) {
             this.scene.start("creditsScene");
