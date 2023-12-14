@@ -145,10 +145,17 @@ class Play extends Phaser.Scene {
         //     this.bike.setGravityY(0);
         // }
         //console.log(this.bike.y);
-
+        
+        if(this.bike.rotation >= 0.15){
+            console.log(this.bike.rotation);
+            this.bike.rotation -= 0.02;
+        }
+        else if(this.bike.rotation <= -0.15){
+            console.log(this.bike.rotation);
+            this.bike.rotation += 0.02;
+        }
         this.bike.resetFlip();
         //this.bike.setAngle(this.wheel.angle);
-        console.log(this.wheel.angle);
         this.wheel2.angle = this.wheel.angle;
         
 
@@ -156,16 +163,15 @@ class Play extends Phaser.Scene {
             this.add.bitmapText(centerX, centerY, 'cleanFont', 'Level', 25).setOrigin(0.5).setTint(0xff0000);
             this.add.bitmapText(centerX, centerY, 'cleanFont', '(Insert Level Num)', 25).setOrigin(0.5).setTint(0xff0000);
             this.add.bitmapText(centerX, centerY, 'cleanFont', 'Cleared!', 25).setOrigin(0.5).setTint(0xff0000);
-            console.log("stuff");
         }
 
         if(this.matter.overlap(this.bike, this.floor)){
-            // this.bike.setPosition(this.floor.width / 31, this.floor.height / 1.75)
-            // this.wheel.setPosition(this.floor.width / 25, this.floor.height / 1.72);
-            // this.wheel2.setPosition(this.floor.width / 35, this.floor.height / 1.72);
-            // this.bike.rotation = 0;
-            // this.bike.setAngularVelocity(0);
-            // this.lives-=1;
+            this.bike.setPosition(this.floor.width / 31, this.floor.height / 1.75)
+            this.wheel.setPosition(this.floor.width / 25, this.floor.height / 1.72);
+            this.wheel2.setPosition(this.floor.width / 35, this.floor.height / 1.72);
+            this.bike.rotation = 0;
+            this.bike.setAngularVelocity(0);
+            this.lives-=1;
             if(this.lives == 2)
             {
                 this.lives3.visible = false;
