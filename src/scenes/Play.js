@@ -183,7 +183,7 @@ class Play extends Phaser.Scene {
             else if(this.lives == 0)
             {
                 this.lives1.visible = false;
-                this.scene.start('loseScene');
+                this.scene.start('selectScene');
                 //go to lose screen
             }
 

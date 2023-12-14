@@ -13,7 +13,7 @@ let config = {
             debug: true
         }
     },
-    scene: [ Load, Menu, Credits, Lose, Play ]
+    scene: [ Load, Menu, Credits, Lose, Play, Select ]
 }
 let game = new Phaser.Game(config);
 
@@ -29,4 +29,4 @@ let h = game.config.height;
 let cursors;
 
 // reserve keyboard vars
-let keyF, keyR, keyLEFT, keyRIGHT, keySpace, keyC;
+let keyF, keyR, keyLEFT, keyRIGHT, keySpace, keyC, key1;
