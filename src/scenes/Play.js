@@ -24,11 +24,13 @@ class Play extends Phaser.Scene {
         this.floor.setCollidesWith(0)
 
 
-        this.finish = this.matter.add.image(this.floor.width / 1.05, this.floor.height / 1.56, 'finishImg');
+        this.finish = this.matter.add.image(this.floor.width / 1.05, this.floor.height / 1.77, 'finishImg');
         this.finish.setToSleep();
         this.finish.setCollisionGroup(1)
         this.finish.setCollidesWith(1)
         
+        this.ramp = this.add.image(this.floor.width / 1.4, this.floor.height / 1.83, 'rampImg');
+
         
 
         // this.floor.width / 12, this.floor.height / 1.5
@@ -147,11 +149,11 @@ class Play extends Phaser.Scene {
         //console.log(this.bike.y);
         
         if(this.bike.rotation >= 0.15){
-            console.log(this.bike.rotation);
+            //console.log(this.bike.rotation);
             this.bike.rotation -= 0.02;
         }
         else if(this.bike.rotation <= -0.15){
-            console.log(this.bike.rotation);
+            //console.log(this.bike.rotation);
             this.bike.rotation += 0.02;
         }
         this.bike.resetFlip();
@@ -207,6 +209,9 @@ class Play extends Phaser.Scene {
         if (!this.wheelInAir && cursors.right.isDown) {
             this.wheel.setVelocityX(this.bikeSpeed);
             this.wheel2.setVelocityX(this.bikeSpeed);
+
+            // this.wheel.setAngularVelocity(0.3);
+            // this.wheel2.setAngularVelocity(0.3);
     
             if (!this.sfxMotor.isPlaying) {
                 //this.sfxMotor.play();
