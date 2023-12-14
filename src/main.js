@@ -10,10 +10,10 @@ let config = {
             gravity: {
                 y: 0.15      //0.15  // 0.25
             },
-            //debug: true
+            debug: true
         }
     },
-    scene: [ Load, Menu, Credits, Play ]
+    scene: [ Load, Menu, Credits, Lose, Play ]
 }
 let game = new Phaser.Game(config);
 
