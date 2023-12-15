@@ -25,7 +25,28 @@ class Menu extends Phaser.Scene {
         if (Phaser.Input.Keyboard.JustDown(keySpace)) {
             
             // CHANGE TO PLAY
-            this.scene.start('trickScene');
+            // this.scene.start('playScene', { 
+            //     bikePosX: levelWidth / 31,
+            //     bikePosY: levelHeight / 1.75,
+            //     numLives: 3,
+            //     finishPosX: levelWidth / 1.05,
+            //     finishPosY: levelHeight / 1.77,
+            //     rampPosX: levelWidth / 1.4,
+            //     rampPosY: levelHeight / 1.83,
+            //     floorPNG: 'lvl1Floor', 
+            //     floorJSON: 'lvl1Points' 
+            // });
+            this.scene.start('playScene', { 
+                bikePosX: levelWidth / 35,
+                bikePosY: levelHeight / 1.7,
+                numLives: 3,
+                finishPosX: levelWidth / 1.05,
+                finishPosY: levelHeight / 1.77,
+                rampPosX: levelWidth / 3.25,
+                rampPosY: levelHeight / 1.83,
+                floorPNG: 'lvl2Floor', 
+                floorJSON: 'lvl2Points' 
+            });
         
         
         }

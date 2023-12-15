@@ -1,8 +1,8 @@
 {
 	"generator_info": "Shape definitions generated with PhysicsEditor. Visit https://www.codeandweb.com/physicseditor",
-	"oneFloor": {
+	"floorPlan": {
 		"type": "fromPhysicsEditor",
-		"label": "oneFloor",
+		"label": "floorPlan",
 		"isStatic": false,
 		"density": 0.1,
 		"restitution": 0,

@@ -3,6 +3,23 @@ class Play extends Phaser.Scene {
         super("playScene");
     }
 
+    init(data) {
+        console.log(data);
+        
+        this.bikePosX = data.bikePosX;
+        this.bikePosY = data.bikePosY;
+        this.numLives = data.numLives;
+    
+        this.finishPosX = data.finishPosX;
+        this.finishPosY = data.finishPosY;
+    
+        this.rampPosX = data.rampPosX;
+        this.rampPosY = data.rampPosY;
+    
+        this.floorPNG = data.floorPNG;
+        this.floorJSON = data.floorJSON;
+    }
+
     create() {
         cursors = this.input.keyboard.createCursorKeys();
         this.sfxMotor = this.sound.add('sfx_motor');
@@ -15,8 +32,8 @@ class Play extends Phaser.Scene {
         //this.floor.setImmovable();
         
 
-        this.floorPhysics = this.cache.json.get('lvl1Points');
-        this.floor = this.matter.add.sprite(0, 0, 'lvl1Floor', null, { shape: this.floorPhysics.oneFloor });
+        this.floorPhysics = this.cache.json.get(this.floorJSON);   
+        this.floor = this.matter.add.sprite(0, 0, this.floorPNG, null, { shape: this.floorPhysics.floorPlan }); 
         this.floor.setPosition(900 + this.floor.centerOfMass.x, 800 + this.floor.centerOfMass.y)
         this.floor.setToSleep();
 
@@ -24,12 +41,15 @@ class Play extends Phaser.Scene {
         this.floor.setCollidesWith(0)
 
 
-        this.finish = this.matter.add.image(this.floor.width / 1.05, this.floor.height / 1.77, 'finishImg');
+        this.finish = this.matter.add.image(this.finishPosX, this.finishPosY, 'finishImg');
         this.finish.setToSleep();
         this.finish.setCollisionGroup(1)
         this.finish.setCollidesWith(1)
         
-        this.ramp = this.add.image(this.floor.width / 1.4, this.floor.height / 1.83, 'rampImg');
+        this.ramp = this.matter.add.image(this.rampPosX, this.rampPosY, 'rampImg');
+        this.ramp.setToSleep();
+        this.ramp.setCollisionGroup(1)
+        this.ramp.setCollidesWith(1)
 
         
 
@@ -46,7 +66,7 @@ class Play extends Phaser.Scene {
         
         
         this.wheelPhysics = this.cache.json.get('wheelPoints');
-        this.wheel = this.matter.add.sprite(this.floor.width / 25, this.floor.height / 1.72, 'wheelImg', null, { shape: this.wheelPhysics.wheel });
+        this.wheel = this.matter.add.sprite(this.bikePosX + 15, this.bikePosY + 10, 'wheelImg', null, { shape: this.wheelPhysics.wheel });
         this.wheel.scale = 0.025;      // 205 208 175
         this.wheel.setFriction(0.9);
         this.wheel.setDensity(0.001);
@@ -56,7 +76,7 @@ class Play extends Phaser.Scene {
         this.wheel.setCollidesWith(0)
         
 
-        this.wheel2 = this.matter.add.sprite(this.floor.width / 35, this.floor.height / 1.72, 'wheelImg', null, { shape: this.wheelPhysics.wheel });
+        this.wheel2 = this.matter.add.sprite(this.bikePosX - 8, this.bikePosY + 10, 'wheelImg', null, { shape: this.wheelPhysics.wheel });
         this.wheel2.scale = 0.025;
         this.wheel2.setFriction(0.9);
         this.wheel2.setDensity(0.001);
@@ -74,7 +94,7 @@ class Play extends Phaser.Scene {
 
         this.bikePhysics = this.cache.json.get('bikePoints');
         // this.floor.width / 35, this.floor.height / 1.8
-        this.bike = this.matter.add.sprite(this.floor.width / 31, this.floor.height / 1.75, 'bikeImg', null, { shape: this.bikePhysics.bikeFrame });
+        this.bike = this.matter.add.sprite(this.bikePosX, this.bikePosY, 'bikeImg', null, { shape: this.bikePhysics.bikeFrame });
         this.bike.scale = 0.7;
         this.bike.setCollisionGroup(1)
         this.bike.setCollidesWith(0)
@@ -111,6 +131,7 @@ class Play extends Phaser.Scene {
         this.wheelInAir = false;
         this.gameOver = false;
         this.finishedLevel = false;
+        this.performingTrick = false;
 
         //this.matter.world.setGravity(0, 50);
         
@@ -122,15 +143,20 @@ class Play extends Phaser.Scene {
         
         this.matter.world.setBounds(0, 0, this.floor.width, this.floor.height);
 
-        this.lives = 3;
         this.lives1 = this.add.image(460 , 20, 'lives').setScale(0.04);
         this.lives2 = this.add.image(425 , 20, 'lives').setScale(0.04);
         this.lives3 = this.add.image(390 , 20, 'lives').setScale(0.04);
         this.lives1.setScrollFactor(0);
         this.lives2.setScrollFactor(0);
         this.lives3.setScrollFactor(0);
-        this.scoreText = this.add.bitmapText(100, 100, 'cleanFont', 'Score: ' + this.score, 35).setOrigin(0.5).setTint(0xfffffff);
 
+        if (this.numLives <= 2) {this.lives3.visible = false;}
+        if (this.numLives == 1) {this.lives2.visible = false;}
+
+        //this.scoreText = this.add.bitmapText(100, 100, 'cleanFont', 'Score: ' + this.score, 35).setOrigin(0.5).setTint(0xfffffff);
+        this.text = this.add.text(200, 200, 50).setTint(0xfffffff);
+        console.log(this.text);
+        this.text.depth = 1;
         
         // this.physics.add.collider(this.bike, this.floor, () => {
         //     console.log("collision");
@@ -173,16 +199,16 @@ class Play extends Phaser.Scene {
             this.wheel2.setPosition(this.floor.width / 35, this.floor.height / 1.72);
             this.bike.rotation = 0;
             this.bike.setAngularVelocity(0);
-            this.lives-=1;
-            if(this.lives == 2)
+            this.numLives -= 1;
+            if(this.numLives == 2)
             {
                 this.lives3.visible = false;
             }
-            else if(this.lives == 1)
+            else if(this.numLives == 1)
             {
                 this.lives2.visible = false;
             }
-            else if(this.lives == 0)
+            else if(this.numLives == 0)
             {
                 this.lives1.visible = false;
                 this.scene.start('loseScene');
@@ -197,6 +223,14 @@ class Play extends Phaser.Scene {
             this.scene.start('selectScene');
             this.finishedLevel = true;
             //go to next level
+        }
+        if(this.matter.overlap(this.bike, this.ramp) || this.matter.overlap(this.wheel, this.ramp) || this.matter.overlap(this.wheel2, this.ramp)){
+            console.log("trick!");
+            this.performingTrick = true;
+            //go to trick scene
+            this.scene.start('trickScene', {
+                numLives: this.numLives
+            });
         }
         // if not colliding with ground, set inAir to true
         // then check if in air before input

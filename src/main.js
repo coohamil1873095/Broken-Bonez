@@ -29,5 +29,8 @@ let h = game.config.height;
 let cursors;
 let score;
 
+let levelWidth = 1920;
+let levelHeight = 1080;
+
 // reserve keyboard vars
 let keyF, keyR, keyLEFT, keyRIGHT, keySpace, keyC, key1;
