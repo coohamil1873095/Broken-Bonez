@@ -28,7 +28,7 @@ let w = game.config.width;
 let h = game.config.height;
 let cursors;
 let score;
-
+let playing;
 let levelWidth = 1920;
 let levelHeight = 1080;
 
