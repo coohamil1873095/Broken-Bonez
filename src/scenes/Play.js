@@ -129,7 +129,7 @@ class Play extends Phaser.Scene {
         this.lives1.setScrollFactor(0);
         this.lives2.setScrollFactor(0);
         this.lives3.setScrollFactor(0);
-
+        this.scoreText = this.add.bitmapText(100, 100, 'cleanFont', 'Score: ' + this.score, 35).setOrigin(0.5).setTint(0xfffffff);
 
         
         // this.physics.add.collider(this.bike, this.floor, () => {
@@ -185,7 +185,7 @@ class Play extends Phaser.Scene {
             else if(this.lives == 0)
             {
                 this.lives1.visible = false;
-                this.scene.start('selectScene');
+                this.scene.start('loseScene');
                 //go to lose screen
             }
 
@@ -194,7 +194,7 @@ class Play extends Phaser.Scene {
             //this.bike.rotation = 0;
         }
         if(this.matter.overlap(this.bike, this.finish) || this.matter.overlap(this.wheel, this.finish) || this.matter.overlap(this.wheel2, this.finish)){
-            console.log("victory!");
+            this.scene.start('selectScene');
             this.finishedLevel = true;
             //go to next level
         }

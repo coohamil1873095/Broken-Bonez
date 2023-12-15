@@ -27,6 +27,7 @@ let centerY = game.config.height/2;
 let w = game.config.width;
 let h = game.config.height;
 let cursors;
+let score;
 
 // reserve keyboard vars
 let keyF, keyR, keyLEFT, keyRIGHT, keySpace, keyC, key1;
