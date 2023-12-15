@@ -12,7 +12,9 @@ class Select extends Phaser.Scene {
         this.blip.setVolume(0.1);
         
         this.add.bitmapText(centerX, centerY / 3, 'cleanFont', 'Level Select', 40).setOrigin(0.5).setTint(0xfffffff);
+        this.add.bitmapText(centerX/3, centerY*1.9, 'cleanFont', 'Right Arrow Key to Accelerate', 10).setOrigin(0.5).setTint(0xfffffff);
         this.add.bitmapText(centerX/3.4, centerY*1.97, 'cleanFont', 'Press C To Return To Menu', 10).setOrigin(0.5).setTint(0xfffffff);
+        this.add.bitmapText(centerX*1.465, centerY*1.97, 'cleanFont', 'Press corresponding number key to select level', 10).setOrigin(0.5).setTint(0xfffffff);
         //level 1
         this.blackbox = this.add.image(centerX / 2.8, centerY / 1.4, 'blackbox').setScale(0.115);
         this.add.bitmapText(centerX / 2.7, centerY / 1.5, 'cleanFont', '1', 30).setOrigin(0.5).setTint(0xfffffff);
