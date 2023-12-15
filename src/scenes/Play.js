@@ -6,6 +6,8 @@ class Play extends Phaser.Scene {
     init(data) {
         console.log(data);
         
+        this.level = data.level;
+        
         this.bikePosX = data.bikePosX;
         this.bikePosY = data.bikePosY;
         this.numLives = data.numLives;
@@ -229,6 +231,7 @@ class Play extends Phaser.Scene {
             this.performingTrick = true;
             //go to trick scene
             this.scene.start('trickScene', {
+                level: this.level,
                 numLives: this.numLives
             });
         }

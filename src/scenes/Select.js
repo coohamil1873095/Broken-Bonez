@@ -52,10 +52,32 @@ class Select extends Phaser.Scene {
     update() {
         //go to each level when the corresponding key is pressed
         if (Phaser.Input.Keyboard.JustDown(key1)) {
-            this.scene.start('playScene');
+            this.scene.start('playScene', { 
+                level: 1,
+                bikePosX: levelWidth / 31,
+                bikePosY: levelHeight / 1.75,
+                numLives: 3,
+                finishPosX: levelWidth / 1.05,
+                finishPosY: levelHeight / 1.77,
+                rampPosX: levelWidth / 1.4,
+                rampPosY: levelHeight / 1.83,
+                floorPNG: 'lvl1Floor', 
+                floorJSON: 'lvl1Points' 
+            });
         }
         if (Phaser.Input.Keyboard.JustDown(key2)) {
-            this.scene.start('playScene');
+            this.scene.start('playScene', { 
+                level: 2,
+                bikePosX: levelWidth / 35,
+                bikePosY: levelHeight / 1.7,
+                numLives: 3,
+                finishPosX: levelWidth / 1.05,
+                finishPosY: levelHeight / 1.77,
+                rampPosX: levelWidth / 3.25,
+                rampPosY: levelHeight / 1.83,
+                floorPNG: 'lvl2Floor', 
+                floorJSON: 'lvl2Points' 
+            });
         }
         if (Phaser.Input.Keyboard.JustDown(key3)) {
             this.scene.start('playScene');

@@ -4,6 +4,7 @@ class Trick extends Phaser.Scene {
     }
 
     init(data) {
+        this.level = data.level;
         this.numLives = data.numLives;
     }
 
@@ -152,8 +153,31 @@ class Trick extends Phaser.Scene {
                 }
                 else {
                     this.numLives -= 1;
+                    
+                    if (this.level == 1) {
+                        this.scene.start('playScene', {
+                            level: this.level,
+                            bikePosX: levelWidth / 31,
+                            bikePosY: levelHeight / 1.75,
+                            numLives: this.numLives,
+                            finishPosX: levelWidth / 1.05,
+                            finishPosY: levelHeight / 1.77,
+                            rampPosX: levelWidth / 1.4,
+                            rampPosY: levelHeight / 1.83,
+                            floorPNG: 'lvl1Floor', 
+                            floorJSON: 'lvl1Points' 
+                        });
+                    }
+                    
+
+                }
+                
+            }
+            else{
+                if (this.level == 1) {
                     this.scene.start('playScene', {
-                        bikePosX: levelWidth / 31,
+                        level: this.level,
+                        bikePosX: levelWidth / 1.15,
                         bikePosY: levelHeight / 1.75,
                         numLives: this.numLives,
                         finishPosX: levelWidth / 1.05,
@@ -161,23 +185,9 @@ class Trick extends Phaser.Scene {
                         rampPosX: levelWidth / 1.4,
                         rampPosY: levelHeight / 1.83,
                         floorPNG: 'lvl1Floor', 
-                        floorJSON: 'lvl1Points' 
+                        floorJSON: 'lvl1Points'
                     });
                 }
-                
-            }
-            else{
-                this.scene.start('playScene', {
-                    bikePosX: levelWidth / 1.15,
-                    bikePosY: levelHeight / 1.75,
-                    numLives: this.numLives,
-                    finishPosX: levelWidth / 1.05,
-                    finishPosY: levelHeight / 1.77,
-                    rampPosX: levelWidth / 1.4,
-                    rampPosY: levelHeight / 1.83,
-                    floorPNG: 'lvl1Floor', 
-                    floorJSON: 'lvl1Points'
-                });
             }
             
             
