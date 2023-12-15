@@ -25,7 +25,7 @@ class Play extends Phaser.Scene {
     create() {
         cursors = this.input.keyboard.createCursorKeys();
         this.sfxMotor = this.sound.add('sfx_motor');
-        this.sfxMotor.setVolume(0.3);
+        this.sfxMotor.setVolume(0.07);
 
         this.sky = this.add.image(0, 0, 'skyImg').setOrigin(0);
         this.scorebar = this.add.image(0, 0, 'scorebar').setScale(2);

@@ -5,17 +5,17 @@ class Menu extends Phaser.Scene {
     }
 
     create() {
+
         if (!Menu.isBgmPlaying) {
             this.bgm = this.sound.add('bgm');
             this.bgm.play({ loop: true });
             this.bgm.setVolume(0.05);
-
+        
             // Update the static variable to indicate that bgm is now playing
             Menu.isBgmPlaying = true;
         }
         this.blip = this.sound.add('blip');
         this.blip.setVolume(0.1);
-        
         this.titleScreen = this.add.image(0, 0,'titleScreen').setOrigin(0);
         this.titleScreen.scale = 0.5;
 
@@ -35,12 +35,16 @@ class Menu extends Phaser.Scene {
 
     update() {
         if (Phaser.Input.Keyboard.JustDown(keySpace)) {
+            
             this.blip.play();
             this.scene.start('selectScene');
+            
+        
+        
         }
         if (Phaser.Input.Keyboard.JustDown(keyC)) {
             this.blip.play();
             this.scene.start("creditsScene");
-        } 
+        }
     }
 }
