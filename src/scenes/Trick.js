@@ -168,8 +168,62 @@ class Trick extends Phaser.Scene {
                             floorJSON: 'lvl1Points' 
                         });
                     }
-                    
-
+                    if (this.level == 2) {
+                        this.scene.start('playScene', { 
+                            level: this.level,
+                            bikePosX: levelWidth / 35,
+                            bikePosY: levelHeight / 1.7,
+                            numLives: this.numLives,
+                            finishPosX: levelWidth / 1.05,
+                            finishPosY: levelHeight / 1.77,
+                            rampPosX: levelWidth / 3.25,
+                            rampPosY: levelHeight / 1.83,
+                            floorPNG: 'lvl2Floor', 
+                            floorJSON: 'lvl2Points' 
+                        });
+                    }
+                    if (this.level == 3) {
+                        this.scene.start('playScene', { 
+                            level: this.level,
+                            bikePosX: levelWidth / 35,
+                            bikePosY: levelHeight / 1.7,
+                            numLives: this.numLives,
+                            finishPosX: levelWidth / 1.075,
+                            finishPosY: levelHeight / 1.77,
+                            rampPosX: levelWidth / 1.3,
+                            rampPosY: levelHeight / 1.83,
+                            floorPNG: 'lvl3Floor', 
+                            floorJSON: 'lvl3Points' 
+                        });
+                    }
+                    if (this.level == 4) {
+                        this.scene.start('playScene', { 
+                            level: this.level,
+                            bikePosX: levelWidth / 35,
+                            bikePosY: levelHeight / 1.7,
+                            numLives: this.numLives,
+                            finishPosX: levelWidth / 1.075,
+                            finishPosY: levelHeight / 1.77,
+                            rampPosX: levelWidth / 2.2,
+                            rampPosY: levelHeight / 2.65,
+                            floorPNG: 'lvl4Floor', 
+                            floorJSON: 'lvl4Points' 
+                        });
+                    }
+                    if (this.level == 5) {
+                        this.scene.start('playScene', { 
+                            level: this.level,
+                            bikePosX: levelWidth / 35,
+                            bikePosY: levelHeight / 1.7,
+                            numLives: this.numLives,
+                            finishPosX: levelWidth / 1.075,
+                            finishPosY: levelHeight / 1.77,
+                            rampPosX: levelWidth / 1.35,
+                            rampPosY: levelHeight / 1.83,
+                            floorPNG: 'lvl5Floor', 
+                            floorJSON: 'lvl5Points' 
+                        });
+                    }
                 }
                 
             }
@@ -188,9 +242,63 @@ class Trick extends Phaser.Scene {
                         floorJSON: 'lvl1Points'
                     });
                 }
+                if (this.level == 2) {
+                    this.scene.start('playScene', { 
+                        level: this.level,
+                        bikePosX: levelWidth / 2.5,
+                        bikePosY: levelHeight / 1.77,
+                        numLives: this.numLives,
+                        finishPosX: levelWidth / 1.075,
+                        finishPosY: levelHeight / 1.77,
+                        rampPosX: levelWidth / 3.25,
+                        rampPosY: levelHeight / 1.83,
+                        floorPNG: 'lvl2Floor', 
+                        floorJSON: 'lvl2Points' 
+                    });
+                }
+                if (this.level == 3) {
+                    this.scene.start('playScene', { 
+                        level: this.level,
+                        bikePosX: levelWidth / 1.15,
+                        bikePosY: levelHeight / 1.83,
+                        numLives: this.numLives,
+                        finishPosX: levelWidth / 1.05,
+                        finishPosY: levelHeight / 1.75,
+                        rampPosX: levelWidth / 1.3,
+                        rampPosY: levelHeight / 1.83,
+                        floorPNG: 'lvl3Floor', 
+                        floorJSON: 'lvl3Points' 
+                    });
+                }
+                if (this.level == 4) {
+                    this.scene.start('playScene', { 
+                        level: this.level,
+                        bikePosX: levelWidth / 1.8,
+                        bikePosY: levelHeight / 2.6,
+                        numLives: this.numLives,
+                        finishPosX: levelWidth / 1.075,
+                        finishPosY: levelHeight / 1.6,
+                        rampPosX: levelWidth / 2.2,
+                        rampPosY: levelHeight / 2.65,
+                        floorPNG: 'lvl4Floor', 
+                        floorJSON: 'lvl4Points' 
+                    });
+                }
+                if (this.level == 5) {
+                    this.scene.start('playScene', { 
+                        level: this.level,
+                        bikePosX: levelWidth / 1.15,
+                        bikePosY: levelHeight / 1.75,
+                        numLives: this.numLives,
+                        finishPosX: levelWidth / 1.05,
+                        finishPosY: levelHeight / 1.77,
+                        rampPosX: levelWidth / 1.35,
+                        rampPosY: levelHeight / 1.83,
+                        floorPNG: 'lvl5Floor', 
+                        floorJSON: 'lvl5Points' 
+                    });
+                }
             }
-            
-            
         }
     }
 

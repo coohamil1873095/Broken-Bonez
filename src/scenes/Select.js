@@ -8,8 +8,8 @@ class Select extends Phaser.Scene {
         // change background color
         this.cameras.main.setBackgroundColor('#272323');
 
-        // show credits text
-
+        this.blip = this.sound.add('blip');
+        this.blip.setVolume(0.1);
         
         this.add.bitmapText(centerX, centerY / 3, 'cleanFont', 'Level Select', 40).setOrigin(0.5).setTint(0xfffffff);
         
@@ -52,6 +52,7 @@ class Select extends Phaser.Scene {
     update() {
         //go to each level when the corresponding key is pressed
         if (Phaser.Input.Keyboard.JustDown(key1)) {
+            this.blip.play();
             this.scene.start('playScene', { 
                 level: 1,
                 bikePosX: levelWidth / 31,
@@ -66,12 +67,13 @@ class Select extends Phaser.Scene {
             });
         }
         if (Phaser.Input.Keyboard.JustDown(key2)) {
+            this.blip.play();
             this.scene.start('playScene', { 
                 level: 2,
                 bikePosX: levelWidth / 35,
                 bikePosY: levelHeight / 1.7,
                 numLives: 3,
-                finishPosX: levelWidth / 1.05,
+                finishPosX: levelWidth / 1.075,
                 finishPosY: levelHeight / 1.77,
                 rampPosX: levelWidth / 3.25,
                 rampPosY: levelHeight / 1.83,
@@ -80,13 +82,49 @@ class Select extends Phaser.Scene {
             });
         }
         if (Phaser.Input.Keyboard.JustDown(key3)) {
-            this.scene.start('playScene');
+            this.blip.play();
+            this.scene.start('playScene', { 
+                level: 3,
+                bikePosX: levelWidth / 35,
+                bikePosY: levelHeight / 1.7,
+                numLives: 3,
+                finishPosX: levelWidth / 1.075,
+                finishPosY: levelHeight / 1.77,
+                rampPosX: levelWidth / 1.3,
+                rampPosY: levelHeight / 1.83,
+                floorPNG: 'lvl3Floor', 
+                floorJSON: 'lvl3Points' 
+            });
         }
         if (Phaser.Input.Keyboard.JustDown(key4)) {
-            this.scene.start('playScene');
+            this.blip.play();
+            this.scene.start('playScene', { 
+                level: 4,
+                bikePosX: levelWidth / 35,
+                bikePosY: levelHeight / 1.7,
+                numLives: 3,
+                finishPosX: levelWidth / 1.075,
+                finishPosY: levelHeight / 1.77,
+                rampPosX: levelWidth / 2.2,
+                rampPosY: levelHeight / 2.65,
+                floorPNG: 'lvl4Floor', 
+                floorJSON: 'lvl4Points' 
+            });
         }
         if (Phaser.Input.Keyboard.JustDown(key5)) {
-            this.scene.start('playScene');
+            this.blip.play();
+            this.scene.start('playScene', { 
+                level: 5,
+                bikePosX: levelWidth / 35,
+                bikePosY: levelHeight / 1.7,
+                numLives: 3,
+                finishPosX: levelWidth / 1.075,
+                finishPosY: levelHeight / 1.77,
+                rampPosX: levelWidth / 1.35,
+                rampPosY: levelHeight / 1.83,
+                floorPNG: 'lvl5Floor', 
+                floorJSON: 'lvl5Points' 
+            });
         }
     }
 }
