@@ -2,6 +2,8 @@
 //  Connor Hamilton
 //  Yahli Kijel
 //
+// Components: Physics, Animation, Camera, Text Objects, Timer
+//
 
 let config = {
     type: Phaser.AUTO,
