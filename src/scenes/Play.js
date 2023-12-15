@@ -156,16 +156,9 @@ class Play extends Phaser.Scene {
         if (this.numLives <= 2) {this.lives3.visible = false;}
         if (this.numLives == 1) {this.lives2.visible = false;}
 
-        //this.scoreText = this.add.bitmapText(100, 100, 'cleanFont', 'Score: ' + this.score, 35).setOrigin(0.5).setTint(0xfffffff);
-        this.text = this.add.text(200, 200, 50).setTint(0xfffffff);
-        console.log(this.text);
-        this.text.depth = 1;
-        
-        // this.physics.add.collider(this.bike, this.floor, () => {
-        //     console.log("collision");
-        // });
-
-        //console.log(this.wheel.y);
+        if (this.level == 1) {
+            this.rightarrow = this.add.image(62, 575, 'rightarrow');
+        }
     }
 
     update() {
