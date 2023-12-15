@@ -37,5 +37,11 @@ let playing;
 let levelWidth = 1920;
 let levelHeight = 1080;
 
+let lvl1HS = 0;
+let lvl2HS = 0;
+let lvl3HS = 0;
+let lvl4HS = 0;
+let lvl5HS = 0;
+
 // reserve keyboard vars
 let keyF, keyR, keyLEFT, keyRIGHT, keySpace, keyC, key1, key2, key3, key4, key5;
