@@ -227,7 +227,7 @@ class Trick extends Phaser.Scene {
                 }
                 
             }
-            else{
+             else{
                 if (this.level == 1) {
                     if (this.score > lvl1HS) {
                         lvl1HS = this.score;
