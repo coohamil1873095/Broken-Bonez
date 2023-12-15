@@ -45,10 +45,21 @@ class Load extends Phaser.Scene {
         this.load.image('skyImg', 'Background/sky.png');
         this.load.image('lives', 'lives.png');
         this.load.image('scorebar', 'scorebar.png');
+        this.load.image('blackbox', 'blackbox.png');
+
         this.load.image('templateFloor', 'Levels/1_floor.png');
         this.load.image('lvl1Floor', 'Levels/1_floor.png');
-        this.load.image('blackbox', 'blackbox.png')
-        this.load.json('lvl1Points', 'Levels/level1Points.json')
+        this.load.json('lvl1Points', 'Levels/level1Points.json');
+        this.load.image('lvl2Floor', 'Levels/2_floor.png');
+        this.load.json('lvl2Points', 'Levels/level2Points.json');
+        this.load.image('lvl3Floor', 'Levels/3_floor.png');
+        this.load.json('lvl3Points', 'Levels/level3Points.json');
+        this.load.image('lvl4Floor', 'Levels/4_floor.png');
+        this.load.json('lvl4Points', 'Levels/level4Points.json');
+        this.load.image('lvl5Floor', 'Levels/5_floor.png');
+        this.load.json('lvl5Points', 'Levels/level5Points.json');
+        
+        
 
         // load audio assets
         this.load.audio('sfx_motor', 'Audio/bikesound.mp3')
