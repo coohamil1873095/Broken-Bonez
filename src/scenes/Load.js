@@ -65,6 +65,8 @@ class Load extends Phaser.Scene {
         this.load.audio('sfx_motor', 'Audio/bikesound.mp3');
         this.load.audio('bgm', 'Audio/loopingmusic.mp3');
         this.load.audio('blip', 'Audio/blip_select12.wav');
+        this.load.audio('ding', 'Audio/ding.mp3');
+
 
         // load font
         this.load.bitmapFont('cleanFont', 'font/CleanPlate.png', 'font/CleanPlate.xml');
