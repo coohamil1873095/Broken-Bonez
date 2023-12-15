@@ -12,7 +12,7 @@ class Select extends Phaser.Scene {
         this.blip.setVolume(0.1);
         
         this.add.bitmapText(centerX, centerY / 3, 'cleanFont', 'Level Select', 40).setOrigin(0.5).setTint(0xfffffff);
-        
+        this.add.bitmapText(centerX/3.4, centerY*1.97, 'cleanFont', 'Press C To Return To Menu', 10).setOrigin(0.5).setTint(0xfffffff);
         //level 1
         this.blackbox = this.add.image(centerX / 2.8, centerY / 1.4, 'blackbox').setScale(0.115);
         this.add.bitmapText(centerX / 2.7, centerY / 1.5, 'cleanFont', '1', 30).setOrigin(0.5).setTint(0xfffffff);
@@ -51,6 +51,7 @@ class Select extends Phaser.Scene {
         //this.add.bitmapText(centerX / 1.02, centerY / 0.8, 'cleanFont', 'To Return To Menu', 30).setOrigin(0.5).setTint(0xfffffff);
         
         //add new keys for each level
+        keyC = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.C);
         key1 = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ONE);
         key2 = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.TWO);
         key3 = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.THREE);
@@ -61,6 +62,10 @@ class Select extends Phaser.Scene {
     
     update() {
         //go to each level when the corresponding key is pressed
+        if (Phaser.Input.Keyboard.JustDown(keyC)) {
+            this.blip.play();
+            this.scene.start('menuScene');
+        }
         if (Phaser.Input.Keyboard.JustDown(key1)) {
             this.blip.play();
             this.scene.start('playScene', { 
