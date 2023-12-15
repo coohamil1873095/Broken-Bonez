@@ -71,8 +71,8 @@ class Load extends Phaser.Scene {
 
         // load animations
         this.load.spritesheet('jump', 'Bike/jump.png', {
-            frameWidth: 544,     // 544
-            frameHeight: 384,    // 384
+            frameWidth: 544,     
+            frameHeight: 384,    
             startFrame: 0,   
             endFrame: 7,
         });
