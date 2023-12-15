@@ -229,6 +229,9 @@ class Trick extends Phaser.Scene {
             }
             else{
                 if (this.level == 1) {
+                    if (this.score > lvl1HS) {
+                        lvl1HS = this.score;
+                    }
                     this.scene.start('playScene', {
                         level: this.level,
                         bikePosX: levelWidth / 1.15,
@@ -243,6 +246,9 @@ class Trick extends Phaser.Scene {
                     });
                 }
                 if (this.level == 2) {
+                    if (this.score > lvl2HS) {
+                        lvl2HS = this.score;
+                    }
                     this.scene.start('playScene', { 
                         level: this.level,
                         bikePosX: levelWidth / 2.5,
@@ -257,6 +263,9 @@ class Trick extends Phaser.Scene {
                     });
                 }
                 if (this.level == 3) {
+                    if (this.score > lvl3HS) {
+                        lvl3HS = this.score;
+                    }
                     this.scene.start('playScene', { 
                         level: this.level,
                         bikePosX: levelWidth / 1.15,
@@ -271,6 +280,9 @@ class Trick extends Phaser.Scene {
                     });
                 }
                 if (this.level == 4) {
+                    if (this.score > lvl4HS) {
+                        lvl4HS = this.score;
+                    }
                     this.scene.start('playScene', { 
                         level: this.level,
                         bikePosX: levelWidth / 1.8,
@@ -285,6 +297,9 @@ class Trick extends Phaser.Scene {
                     });
                 }
                 if (this.level == 5) {
+                    if (this.score > lvl5HS) {
+                        lvl5HS = this.score;
+                    }
                     this.scene.start('playScene', { 
                         level: this.level,
                         bikePosX: levelWidth / 1.15,
