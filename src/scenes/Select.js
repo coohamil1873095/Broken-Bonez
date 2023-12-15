@@ -22,21 +22,21 @@ class Select extends Phaser.Scene {
         //level 2
         this.blackbox = this.add.image(centerX, centerY / 1.4, 'blackbox').setScale(0.115);
         this.add.bitmapText(centerX+3, centerY / 1.5, 'cleanFont', '2', 30).setOrigin(0.5).setTint(0xfffffff);
-        this.lvl1 = this.add.image(centerX+3, centerY / 1.29, 'lvl1Floor').setScale(0.04);
+        this.lvl2 = this.add.image(centerX+3, centerY / 1.29, 'lvl2Floor').setScale(0.04);
         this.add.bitmapText(centerX+3, centerY / 1.04, 'cleanFont', 'High Score: ', 10).setOrigin(0.5).setTint(0xfffffff);
         this.add.bitmapText(centerX+3, centerY / 0.97, 'cleanFont', lvl2HS, 10).setOrigin(0.5).setTint(0xfffffff);
 
         //level 3
         this.blackbox = this.add.image(centerX*1.65, centerY / 1.4, 'blackbox').setScale(0.115);
         this.add.bitmapText(centerX*1.65+3, centerY / 1.5, 'cleanFont', '3', 30).setOrigin(0.5).setTint(0xfffffff);
-        this.lvl1 = this.add.image(centerX*1.65+3, centerY / 1.29, 'lvl1Floor').setScale(0.04);
+        this.lvl3 = this.add.image(centerX*1.65+3, centerY / 1.29, 'lvl3Floor').setScale(0.04);
         this.add.bitmapText(centerX*1.65+3, centerY / 1.04, 'cleanFont', 'High Score: ', 10).setOrigin(0.5).setTint(0xfffffff);
         this.add.bitmapText(centerX*1.65+3, centerY / 0.97, 'cleanFont', lvl3HS, 10).setOrigin(0.5).setTint(0xfffffff);
 
         //level 4
         this.blackbox = this.add.image(centerX/1.5, centerY *1.46, 'blackbox').setScale(0.115);
         this.add.bitmapText(centerX/1.47, centerY * 1.42, 'cleanFont', '4', 30).setOrigin(0.5).setTint(0xfffffff);
-        this.lvl1 = this.add.image(centerX/1.47, centerY * 1.525, 'lvl1Floor').setScale(0.04);
+        this.lvl4 = this.add.image(centerX/1.47, centerY * 1.525, 'lvl4Floor').setScale(0.04);
         this.add.bitmapText(centerX/1.47, centerY * 1.715, 'cleanFont', 'High Score: ', 10).setOrigin(0.5).setTint(0xfffffff);
         this.add.bitmapText(centerX/1.47, centerY *1.785, 'cleanFont', lvl4HS, 10).setOrigin(0.5).setTint(0xfffffff);
         
@@ -44,7 +44,7 @@ class Select extends Phaser.Scene {
         //level 5
         this.blackbox = this.add.image(centerX*1.32, centerY *1.46, 'blackbox').setScale(0.115);
         this.add.bitmapText(centerX*1.33, centerY * 1.42, 'cleanFont', '5', 30).setOrigin(0.5).setTint(0xfffffff);
-        this.lvl1 = this.add.image(centerX*1.33, centerY * 1.525, 'lvl1Floor').setScale(0.04);
+        this.lvl5 = this.add.image(centerX*1.33, centerY * 1.525, 'lvl5Floor').setScale(0.04);
         this.add.bitmapText(centerX*1.33, centerY * 1.715, 'cleanFont', 'High Score: ', 10).setOrigin(0.5).setTint(0xfffffff);
         this.add.bitmapText(centerX*1.33, centerY *1.785, 'cleanFont', lvl5HS, 10).setOrigin(0.5).setTint(0xfffffff);
         
