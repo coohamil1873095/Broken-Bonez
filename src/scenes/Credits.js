@@ -8,6 +8,9 @@ class Credits extends Phaser.Scene {
         // change background color
         this.cameras.main.setBackgroundColor('#272323');
 
+        this.blip = this.sound.add('blip');
+        this.blip.setVolume(0.1);
+       
         // show credits text
 
         this.add.bitmapText(centerX, centerY / 5, 'cleanFont', 'Credits', 20).setOrigin(0.5).setTint(0xfffffff);
@@ -27,6 +30,7 @@ class Credits extends Phaser.Scene {
     
     update() {
         if (Phaser.Input.Keyboard.JustDown(keyC)) {
+            this.blip.play();
             this.scene.start('menuScene');
         }
     }
