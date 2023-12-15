@@ -5,15 +5,15 @@
 
 let config = {
     type: Phaser.AUTO,
-    width: 480,    //480    1920
-    height: 320,   //320    1080
+    width: 480,    
+    height: 320,   
     pixelArt: true,
     zoom: 2,
     physics: {
         default: "matter",
         matter: {
             gravity: {
-                y: 0.15      //0.15  // 0.25
+                y: 0.15      
             },
             //debug: true
         }

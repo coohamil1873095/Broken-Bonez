@@ -48,8 +48,6 @@ class Select extends Phaser.Scene {
         this.add.bitmapText(centerX*1.33, centerY * 1.715, 'cleanFont', 'High Score: ', 10).setOrigin(0.5).setTint(0xfffffff);
         this.add.bitmapText(centerX*1.33, centerY *1.785, 'cleanFont', lvl5HS, 10).setOrigin(0.5).setTint(0xfffffff);
         
-        //this.add.bitmapText(centerX / 1.02, centerY / 0.8, 'cleanFont', 'To Return To Menu', 30).setOrigin(0.5).setTint(0xfffffff);
-        
         //add new keys for each level
         keyC = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.C);
         key1 = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ONE);

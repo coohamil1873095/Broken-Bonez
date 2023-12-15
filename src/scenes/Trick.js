@@ -145,15 +145,13 @@ class Trick extends Phaser.Scene {
     // Function called when the timer ends
     timerEnded() {
         if (this.timer.getProgress() === 1) {
-            console.log(this.lastPressed);
             if(this.lastPressed != "up")
             {
+                this.numLives -= 1;
                 if (this.numLives == 0) {
                     this.scene.start('loseScene');
                 }
                 else {
-                    this.numLives -= 1;
-                    
                     if (this.level == 1) {
                         this.scene.start('playScene', {
                             level: this.level,
@@ -315,11 +313,5 @@ class Trick extends Phaser.Scene {
                 }
             }
         }
-    }
-
-    startGameLogic() {
-        // Add your logic to execute after the up arrow key is pressed
-        console.log('Starting game logic!');
-        this.waitForInput = false; // Set to false to stop waiting for input
     }
 }
