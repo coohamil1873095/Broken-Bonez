@@ -255,10 +255,10 @@ class Play extends Phaser.Scene {
                 this.sfxMotor.play();
             }
         }
-        if(!this.wheelInAir && cursors.left.isDown)
+        /*if(!this.wheelInAir && cursors.left.isDown)
         {
             this.wheel2.setVelocityX(-1.3);
-        }
+        }*/
         
         if(this.wheelInAir && cursors.right.isDown)
         {
