@@ -1,3 +1,8 @@
+//
+//  Connor Hamilton
+//  Yahli Kijel
+//
+
 let config = {
     type: Phaser.AUTO,
     width: 480,    //480    1920
