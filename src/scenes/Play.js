@@ -27,6 +27,9 @@ class Play extends Phaser.Scene {
         this.sfxMotor = this.sound.add('sfx_motor');
         this.sfxMotor.setVolume(0.07);
 
+        this.ding = this.sound.add('ding');
+        this.ding.setVolume(0.1);
+
         this.sky = this.add.image(0, 0, 'skyImg').setOrigin(0);
         this.scorebar = this.add.image(0, 0, 'scorebar').setScale(2);
         this.scorebar.setScrollFactor(0);
@@ -148,6 +151,7 @@ class Play extends Phaser.Scene {
         }
         
         if(this.matter.overlap(this.bike, this.finish) || this.matter.overlap(this.wheel, this.finish) || this.matter.overlap(this.wheel2, this.finish)){
+            this.ding.play();
             this.scene.start('selectScene');
             this.finishedLevel = true;
         }
